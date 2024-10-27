@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismi Avastused</title>
     <style>
-        /* Stiilid */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -49,8 +48,7 @@
             border-radius: 8px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-        canvas, video {
-            width: 300px;
+        table, canvas, video, svg {
             display: block;
             margin: 20px auto;
             border: 1px solid #ddd;
@@ -71,22 +69,20 @@
     </header>
 
     <main>
+        <!-- Euroopa sektsioon -->
         <section id="europe">
             <h2>Avasta Euroopa</h2>
             <article>
                 <h3>Euroopa Ajalugu</h3>
                 <p><b>Euroopa</b> on täis <abbr title="Ajalooline paik">UNESCO</abbr> kaitse all olevaid vaatamisväärsusi ja <strong>ajaloolisi paiku</strong>, näiteks <del>Berliini müür</del>, mida enam ei ole. Lisateavet leiad <ins>UNESCO</ins> lehelt. <mark>Tähtis teade:</mark> Euroopa reisid on populaarsed!</p>
             </article>
-        
             <blockquote cite="https://en.wikipedia.org/wiki/Europe">
                 "Euroopa on kultuuriliselt ja geograafiliselt rikas piirkond, millel on pikk ajalugu."
             </blockquote>
-
             <figure>
-                <img src="https://www.worldatlas.com/r/w1200/upload/fb/bc/7e/europe-map.jpg" alt="Euroopa kaart" width="300" height="150" style="border:1px solid #ddd;">
+                <img src="https://www.worldatlas.com/r/w1200/upload/fb/bc/7e/europe-map.jpg" alt="Euroopa kaart" width="300" height="150">
                 <figcaption>Euroopa kaart koos graafikaga</figcaption>
-            </figure>            
-        
+            </figure>
             <table>
                 <caption>Populaarsed Euroopa sihtkohad</caption>
                 <colgroup>
@@ -121,33 +117,30 @@
             </table>
         </section>
 
+        <!-- Aasia sektsioon -->
         <section id="asia">
             <h2>Avasta Aasia</h2>
             <figure>
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Tokyo_Shibuya_Scramble_Crossing_2018-10-09.jpg" alt="Tokyo tänavavaade" width="300">
                 <figcaption>Tokyo tänavavaade</figcaption>
             </figure>
-
             <audio controls>
                 <source src="https://opengameart.org/sites/default/files/Soliloquy_1.mp3" type="audio/mpeg">
                 Teie brauser ei toeta audioelementi.
             </audio>
         </section>
 
+        <!-- Ameerika sektsioon -->
         <section id="america">
             <h2>Avasta Ameerika</h2>
             <details>
                 <summary>Loe rohkem Ameerika vaatamisväärsuste kohta</summary>
                 <p>New York on linn, mis ei maga kunagi, pakkudes lõputuid kultuurilisi ja kunstilisi võimalusi.</p>
             </details>
-
-            <iframe width="300" height="150" src="https://www.youtube.com/embed/NvVgTVpeAIs"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
+            <iframe width="300" height="150" src="https://www.youtube.com/embed/NvVgTVpeAIs" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </section>
 
+        <!-- Tagasiside sektsioon -->
         <section id="feedback">
             <h3>Tagasiside</h3>
             <form action="/submit" method="post">
@@ -161,7 +154,6 @@
                     <input type="date" id="birthday" name="birthday"><br><br>
                     <label for="comment">Sinu kommentaar:</label>
                     <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
-
                     <label for="country">Vali riik:</label>
                     <select id="country" name="country">
                         <optgroup label="Euroopa">
@@ -177,6 +169,21 @@
                 </fieldset>
             </form>
         </section>
+
+        <!-- Muud elemendid kasutatud loogilises kontekstis -->
+        <section id="additional-elements">
+            <h3>Kasulikud Näpunäited ja Näited</h3>
+            <p><i>Näidis kaldkiri</i> ja <kbd>Ctrl</kbd> + <kbd>C</kbd> klahvikombinatsioon sisu kopeerimiseks. Samuti näide programmi väljundist: <samp>Programm lõpetatud edukalt</samp>.</p>
+            <hr>
+            <p><small>Autoriõigused &copy; 2024 Turismi Avastused</small></p>
+            <pre><code>print("Tere, maailm!")</code></pre>
+            <svg width="100" height="100">
+                <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+            </svg>
+            <template id="exampleTemplate">
+                <p>See on malli sisu, mida saab JavaScriptiga kasutada.</p>
+            </template>
+        </section>
     </main>
 
     <footer>
@@ -187,17 +194,17 @@
     </footer>
 
     <script>
-        const canvas = document.getElementById("exampleCanvas");
-        if (canvas && canvas.getContext) {
-            const ctx = canvas.getContext("2d");
-            ctx.fillStyle = "#007BFF";
-            ctx.fillRect(10, 10, 100, 50);
-            ctx.strokeStyle = "#333";
-            ctx.strokeRect(10, 10, 100, 50);
-            ctx.font = "16px Arial";
-            ctx.fillStyle = "white";
-            ctx.fillText("Euroopa", 20, 40);
-        }
+        // Canvas joonistus
+        const canvas = document.createElement("canvas");
+        canvas.width = 300;
+        canvas.height = 150;
+        document.getElementById("europe").appendChild(canvas);
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#007BFF";
+        ctx.fillRect(10, 10, 100, 50);
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "white";
+        ctx.fillText("Euroopa", 20, 40);
     </script>
 </body>
 </html>
