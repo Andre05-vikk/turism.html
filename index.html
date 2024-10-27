@@ -70,6 +70,10 @@
         .center {
             text-align: center;
         }
+        .small-text {
+            font-size: 0.9em;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -197,8 +201,7 @@
         </section>
 
         <!-- Lisatavad elemendid, mis on peidetud -->
-        <section class="extra-elements" style="display: none;">           
-            <h3 style="visibility: hidden; height: 0; margin: 0;">Peidetud elemendid</h3>
+        <div class="extra-elements" style="display: none;">
             <p><kbd>Ctrl</kbd> + <kbd>C</kbd> sisu kopeerimiseks. <sub>alamindeks</sub> ja <sup>ülaindeks</sup></p>
             <hr>
             <ol>
@@ -212,14 +215,14 @@
             <template id="exampleTemplate">
                 <p>See on malli sisu, mida saab JavaScriptiga kasutada.</p>
             </template>
-        </section>
+        </div>
     </main>
 
     <footer>
         <address>
             Kontakt: <a href="mailto:info@turismiavastused.ee">info@turismiavastused.ee</a>
         </address>
-        <p>&copy; 2024 Turismi Avastused</p>
+        <p class="small-text">&copy; 2024 Turismi Avastused</p>
     </footer>
 
     <script>
